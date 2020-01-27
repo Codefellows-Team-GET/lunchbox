@@ -9,7 +9,7 @@ Matthew Johnson
 Wireframe
 https://docs.google.com/document/d/1hq4M_KtpNEvarGNVprkY8tf16XGHjn5DZIzww7HpR3g/edit?usp=sharing
 
-User Stories
+User Stories --
 
 View Local Restaurants - large
 As a user, I would like to view local restaurants around campus.
@@ -56,21 +56,10 @@ User can delete restaurants from list/database
 	Acceptance Tasks: 
 Ensures that user can keep list up to date with restaurants that are open/haven’t moved
 
-
+Domain Modeling
+https://docs.google.com/document/d/1yn9zz5VLHTQgVthCnbmCPVSj_a-IIGrYkvllDjHMiT0/edit?usp=sharing
 
 Database Entity-Relationship-Diagram
+https://docs.google.com/document/d/1LNPzYVGHxVjAHakoFidQAQtXeGmfxHrpKE9Rh8MJuEQ/edit?usp=sharing
 
-Restaurants 
-Primary Key (datatype - #) 
-Restaurant Name (datatype- string)
-Restaurant Address (datatype -string)
-Walk Time (datatype - #) 
-Wait Time (datatype - #)
-Price ( $)
-  Category Id - Foreign (#)
-  |
-  V
-  Categories 
-  Category ID (datatype - #) 
-  Category Type (datatype -string) 
 
