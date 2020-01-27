@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Lunch Box - Input</title>
+  </head>
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+        <header>
+          <div id="nav-list">
+            <!-- <p><img src="Lunch Box logo image here" class="logo" alt="logo"></p> -->
+            <ul class="link-list">
+              <li><a href ="index.html" id="link-color" class="nav-bar">Home</a></li>
+              <li><a href ="input.html" id="link-color" class="nav-bar">Input</a></li>
+              <li><a href ="results.html" id="link-color" class="nav-bar">Results</a></li>
+              <li><a href ="about.html" id="link-color" class="nav-bar">About Us</a></li>
+            </ul>
+          </div>
+        </header>
+        <main>
+          <!-- Reuse Homepage Hero here or new image? -->
+          <div id ="div-form">
+            <form id="new-lunchbox">
+               <fieldset>
+                  <legend>Restaurant Details</legend>
+                  <label>User Name:
+                  <input type="text" id="user-name" class="class-lunchbox" required />
+                  </label></br>
+                  <label>Restaurant Name:
+                  <input type="text" id="res-name" class="class-lunchbox" required/>
+                  </label></br>
+                  <label>Walk Time:
+                  <input type="number" id="walk-time"class="class-lunchbox" required>
+                  </label></br>
+                  <label id="wait">Wait Time:
+                  <input type="number" id="wait-time"class="class-lunchbox" required>
+                  </label></br>
+                  Price:
+                  <select id="price"class="class-lunchbox">
+                     <option value="&#36;" class="class-lunchbox">Less than $10</option>
+                     <option value="&#36;&#36;" class="class-lunchbox">$10 - $15</option>
+                     <option value="&#36;&#36;&#36;" class="class-lunchbox">More than $15</option>
+                  </select>
+                  </br>
+                  <span>Rating:</span>
+                  <select id="rating"class="class-lunchbox">
+                    <!-- Star sign refered from https://www.alt-codes.net/star_alt_code.php -->
+                     <option value="&#9733;&#9734;&#9734;&#9734;" class="class-lunchbox">★☆☆☆</option>
+                     <option value="&#9733;&#9733;&#9734;&#9734;" class="class-lunchbox">★★☆☆</option>
+                     <option value="&#9733;&#9733;&#9733;&#9734;" class="class-lunchbox">★★★☆</option>
+                     <option value="&#9733;&#9733;&#9733;&#9733;" class="class-lunchbox">★★★★</option>
+                  </select>
+                  </br>
+                  <button type="submit" value="submit" class="class-lunchbox submitID" >Submit Only</button>
+                  <button type="submit" value="submit" onclick="window.location = 'results.html';" class="class-lunchbox submitID" >Submit & Results</button>
+                </label>
+               </fieldset>
+            </form>
+          </div>
+        </main>
+      </div>
+      <footer id="footer">
+        @ Team Get Project 301 
+      </footer>
+    </div>
+    <script src="js/app.js" type="text/javascript"></script>
+  </body>
+</html>
