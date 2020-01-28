@@ -22,17 +22,6 @@ var path = require('path');
 // app.use(bodyParser.urlencoded());
 // app.use(bodyParser.json());
 // app.set('views/pages', path.join(__dirname, 'pages'));
-// already have app.set('view engine', 'ejs');
-
-//added
-// app.get('/', function(req, res){
-//   res.render('pages/index', {
-//     foo: 'bar',
-//     map: '../../img/GoogleMapTa.jpg'
-
-
-//   });
-// })
 
 app.use(cors());
 //added
@@ -57,7 +46,36 @@ function homePageLoad(req, res) {
     map: `https://maps.locationiq.com/v2/staticmap?key=${key}&center=47.618249,-122.351872&zoom=16&size=400x400&markers=icon:small-red-cutout|47.618249,-122.351872`
     // '../../img/GoogleMapTa.jpg'
   });
+
+  console.log('inside yelp handler');
+  let key = process.env.YELP_API_KEY;
+  const yelpURL = `https://api.yelp.com/v3/businesses/search?category=restaurants&latitude=47.618249&longitude=-122.351872`;
+
+  superagent.get(yelpURL)
+    .set('Authorization', `Bearer ${key}`)
+    .then(yelpData => {
+
+      let restaurantList = JSON.parse(yelpData.text);
+      let restaurantData = restaurantList.businesses.map(thisRestaurantData => {
+        return new Restaurant(thisRestaurantData)
+      })
+      console.log('these are the results:',restaurantData)
+      // res.render('/layout/footer', {results: restaurantData})
+    })
+    .catch(err => console.error('Something went wrong', err))
+
 }
+
+function Restaurant(data) {
+  this.name = data.name;
+  this.url = data.url;
+  this.address = data.display_address;
+}
+
+
+
+
+
 
 function inputPageLoad(req, res) {
   res.render('pages/input', {
@@ -79,28 +97,13 @@ function errorHandler(error, req, res) {
   res.status(500).send(error);
 }
 
+
 // /// Yelp handler
 app.get('/yelp', yelpHandler);
 
-function yelpHandler (req, res) {
-  console.log('inside yelp handler');
-  let key = process.env.YELP_API_KEY;
-  const yelpURL = `https://api.yelp.com/v3/businesses/search?category=restaurants&latitude=47.618249&longitude=-122.351872`;
 
-  superagent
-    .get(yelpURL)
-    .set('Authorization', `Bearer ${key}`)
-    .then(yelpData => {
 
-      let restaurantList = JSON.parse(yelpData.text);
-      let restaurantData = restaurantList.businesses.map(thisRestaurantData => {
-        return new Restaurant(thisRestaurantData)
-      })
-      console.log('these are the results:',restaurantData)
-      res.render('pages/', {results: restaurantData})
-    })
-    .catch(err => console.error('Something went wrong', err))
-}
+
 
 
 function Restaurant(data) {
@@ -109,19 +112,10 @@ function Restaurant(data) {
   this.address = data.display_address;
 }
 
-/// Map Handler
-// app.post('/' , mapHandler);
-
-// function mapHandler (req, res) {
-//   let key = process.env.MAP_API_KEY;
-//   let latitude = 47.618249;
-//   let longitude = -122.351872;
-//   let url = `https://maps.locationiq.com/v2/staticmap?${key}?${longitude},${latitude}`
-// }
-
 
 
 // client.connect()
 //   .then(() => {
 app.listen(PORT, () => console.log(`Your server is listening on ${PORT}`));
 // });
+
