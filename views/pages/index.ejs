@@ -19,16 +19,18 @@
     <!--ken's work space VV-->
     <!-- added / not working -->
 
+
     <!-- Static Map -->
     <section id=map>
       <img id=staticMap src="<%= map %>" alt="map">
     </section>
 
-    <form id="nameIntake" action="">
-      What is your name?:<br>
-      <input type="text" name="firstname" value="" placeholder="Your Name Please"><br>
-      <button id="topage2">click <a href="/input"></a></button>
-    </form>
+
+  <form class="pure-form" action="/input">
+    <input id="name" type="text" placeholder="Enter Name" />
+    <button id="topage2" onclick="submitInfo()" type="submit"><i class="fa fa-chevron-circle-right"></i>submit <a href="input.ejs"></a></button>
+</form>
+
 
     <!--ken's work space ^^-->
 

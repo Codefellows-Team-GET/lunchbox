@@ -52,7 +52,6 @@ function homePageLoad(req, res) {
   superagent.get(yelpURL)
     .set('Authorization', `Bearer ${yelpKey}`)
     .then(yelpData => {
-
       let restaurantList = JSON.parse(yelpData.text);
       let restaurantData = restaurantList.businesses.map(thisRestaurantData => {
         return new Restaurant(thisRestaurantData)
@@ -69,9 +68,6 @@ function Restaurant(data) {
   this.url = data.url;
   this.address = data.location.display_address;
 }
-
-
-
 
 
 
