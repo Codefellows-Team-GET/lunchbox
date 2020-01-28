@@ -1,0 +1,167 @@
+/* cait's CSS  */
+
+/* 
+dark #171820
+yellow #fdc029
+orange df861d
+red aa3d01
+grey #bcb6ae
+*/
+
+* {
+    box-sizing: border-box;
+  }
+  
+
+
+body { 
+    background-image: url("/img/wood\ table\ .jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    display: flexbox;
+    width: 80%;
+    background-color: #49494b;
+    border: solid 8px #fdc029;
+    color: white;
+    margin: auto;
+    align-items: center;;
+    padding: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 25px
+}
+
+/* Nav Bar */
+
+.nav {
+    width: 100%;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+    display: inline-flex;
+    list-style: none;
+    background-color: #fdc029;
+    margin: 10px auto 30px auto;
+}
+
+.nav > li {
+    float: left;
+    text-align: center;
+    margin: auto;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.nav > li > a {
+    color: #2abe3e;
+    font-weight: bold;
+}
+
+.nav > li > a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+/*  End Nav Bar*/
+
+/*  Logo */
+
+#logo { 
+    position: relative;
+    display: inline-flex;
+    margin: auto;
+}
+
+h1 { 
+    color: #fdc029;
+    font-size: 5em;
+    font-weight: bolder;
+    padding: 10px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+#plate {
+    display: inline-flex;
+    float: right;
+    max-width: 100px;
+}
+/* End page header  */
+
+h2 { 
+    color: #2abe3e;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+/* Index page */
+#map {
+    width: 100%;
+}
+
+#staticMap {
+    display: flex;
+    width: 70%;
+    margin: 2em auto;
+    border: solid 1px #fdc029;
+    border-radius: 5%;
+}
+
+#yelp { 
+    width: 100%;
+    height: 325px;
+    overflow: scroll;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+
+}
+
+.pure-form {
+    text-align: center;;
+}
+
+footer {
+    height: 50px;
+    line-height: 50px;
+    /* border-top: dashed 1px black; */
+    margin-top: 20px;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    font-size: 18px;
+
+}
+
+/* End Index */
+
+/* DESKTOP VIEW */
+
+@media (min-width: 960px) {
+
+    body {
+        margin: auto;
+    }
+
+    main {
+        display: flex;
+        margin: auto;
+    }
+
+    footer {
+        height: 50px;
+        line-height: 50px;
+        /* border-top: dashed 1px black; */
+        margin-top: 20px;
+        text-align: center;
+        padding: 5px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-size: 18px;
+    }
+
+
+}
