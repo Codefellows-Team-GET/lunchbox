@@ -40,9 +40,11 @@ app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 app.use(errorHandler);
 
 function homePageLoad(req, res) {
+  let key = process.env.MAP_API_KEY;
   res.render('pages/index', {
     foo: 'bar',
-    map: '../../img/GoogleMapTa.jpg'
+    map: `https://maps.locationiq.com/v2/staticmap?key=${key}&center=47.618249,-122.351872&zoom=16&size=400x400&markers=icon:small-red-cutout|47.618249,-122.351872`
+    // '../../img/GoogleMapTa.jpg'
   });
 
   console.log('inside yelp handler');
@@ -96,9 +98,19 @@ function errorHandler(error, req, res) {
 }
 
 
+// /// Yelp handler
+app.get('/yelp', yelpHandler);
 
 
 
+
+
+
+function Restaurant(data) {
+  this.name = data.name;
+  this.url = data.url;
+  this.address = data.display_address;
+}
 
 
 
