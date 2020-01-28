@@ -1,5 +1,9 @@
 'use strict';
 
+const Index = require('../js/index.js');
+const Input = require('../js/input.js');
+const Results = require('../js/results.js');
+
 require('dotenv').config();
 
 const express = require('express');

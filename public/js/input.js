@@ -1,5 +1,9 @@
 'use strict';
 
+const Server = require('../server.js');
+const Index = require('../js/index.js');
+const Results = require('../js/results.js');
+
 console.log("JS linked");
 
 var lunchbox = [];
