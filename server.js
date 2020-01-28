@@ -35,6 +35,7 @@ app.get('/', homePageLoad);
 app.get('/input', inputPageLoad);
 app.get('/results', resultsPageLoad);
 app.get('/about', aboutPageLoad);
+app.post('/addRestaurant', addRes);
 app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 
 app.use(errorHandler);
