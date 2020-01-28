@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <%- include('../layout/head') %>
-    <title>Lunch Box - Home</title>
+    <title>Lunchbox - Home</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Permanent+Marker&display=swap" rel="stylesheet">
   </head>
   <body>
 
@@ -15,11 +18,15 @@
 
     <!--ken's work space VV-->
     <!-- added / not working -->
-    <img src="<%= map %>" alt="map" width="250px">
 
-    <form action="">
+    <!-- Static Map -->
+    <section id=map>
+      <img id=staticMap src="<%= map %>" alt="map">
+    </section>
+
+    <form id="nameIntake" action="">
       What is your name?:<br>
-      <input type="text" name="firstname" value="Your name please"><br>
+      <input type="text" name="firstname" value="" placeholder="Your Name Please"><br>
       <button id="topage2">click <a href="/input"></a></button>
     </form>
 
@@ -30,7 +37,7 @@
           <!-- API info goes below -->
 
           <!-- Caits workspace for yelp -->
-  <section>
+  <section id=yelp>
       <ul>
 
         <% restaurant.forEach(obj => { %>
