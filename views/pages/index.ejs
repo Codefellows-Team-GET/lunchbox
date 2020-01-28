@@ -17,11 +17,16 @@
     <!-- added / not working -->
     <img src="<%= map %>" alt="map" width="250px">
 
-    <form action="">
-      What is your name?:<br>
-      <input type="text" name="firstname" value="Your name please"><br>
-      <button id="topage2">click <a href="/input"></a></button>
-    </form>
+    
+  <form class="pure-form" action="/input">
+    <input id="name" type="text" placeholder="Enter Name" />
+    <button id="topage2" onclick="submitInfo()" type="submit"><i class="fa fa-chevron-circle-right"></i>submit <a href="input.ejs"></a></button>
+</form>
+
+
+
+
+
 
     <!--ken's work space ^^-->
 

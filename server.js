@@ -1,8 +1,8 @@
 'use strict';
 
-const Index = require('../js/index.js');
-const Input = require('../js/input.js');
-const Results = require('../js/results.js');
+// const Index = require('../js/index.js');
+// const Input = require('../js/input.js');
+// const Results = require('../js/results.js');
 
 require('dotenv').config();
 
@@ -39,7 +39,7 @@ app.get('/', homePageLoad);
 app.get('/input', inputPageLoad);
 app.get('/results', resultsPageLoad);
 app.get('/about', aboutPageLoad);
-app.post('/addRestaurant', addRes);
+// app.post('/addRestaurant', addRes);
 app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 
 app.use(errorHandler);
@@ -52,7 +52,6 @@ function homePageLoad(req, res) {
   superagent.get(yelpURL)
     .set('Authorization', `Bearer ${yelpKey}`)
     .then(yelpData => {
-
       let restaurantList = JSON.parse(yelpData.text);
       let restaurantData = restaurantList.businesses.map(thisRestaurantData => {
         return new Restaurant(thisRestaurantData)
@@ -69,9 +68,6 @@ function Restaurant(data) {
   this.url = data.url;
   this.address = data.location.display_address;
 }
-
-
-
 
 
 
