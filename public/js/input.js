@@ -1,5 +1,7 @@
 'use strict';
 
+console.log("JS linked");
+
 var lunchbox = [];
 
 // Below is our constructor function.
