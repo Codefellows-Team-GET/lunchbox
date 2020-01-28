@@ -1,8 +1,8 @@
 'use strict';
 
-const Server = require('../server.js');
-const Index = require('../js/index.js');
-const Input = require('../js/input.js');
+// const Server = require('../server.js');
+// const Index = require('../js/index.js');
+// const Input = require('../js/input.js');
 
 console.log("JS linked");
 
