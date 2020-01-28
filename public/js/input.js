@@ -42,5 +42,18 @@ function handleFormSubmitted(event) {
   var newLunchbox = new Lunchbox(resNameValue, walkTimeValue, waitTimeValue, totalTimeValue, priceValue, ratingValue);
 }
 
-var formElement = document.getElementById('new-takeout');
+// Below is the function that will add restaraunt data to the database
+
+function addRes(req, res) {
+  let { name, walk, wait, total, price, rating } = req.body;
+
+  let SQL = 'INSERT INTO saved_res(name, walk, wait, total, price, rating) VALUES ($1, $2, $3, $4, $5, $6);';
+  let values = [name, walk, wait, total, price, rating];
+
+  return client.query(SQL, values)
+    .then(res.redirect('/results'))
+    .catch(err => errorHandler(err, res));
+}
+
+var formElement = document.getElementById('new-lunchbox');
 formElement.addEventListener('submit', handleFormSubmitted);
