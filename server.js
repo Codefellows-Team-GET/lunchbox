@@ -40,36 +40,29 @@ app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 app.use(errorHandler);
 
 function homePageLoad(req, res) {
-  let key = process.env.MAP_API_KEY;
-  res.render('pages/index', {
-    foo: 'bar',
-    map: `https://maps.locationiq.com/v2/staticmap?key=${key}&center=47.618249,-122.351872&zoom=16&size=400x400&markers=icon:small-red-cutout|47.618249,-122.351872`
-    // '../../img/GoogleMapTa.jpg'
-  });
-
-  console.log('inside yelp handler');
-  let key = process.env.YELP_API_KEY;
+  let mapKey = process.env.MAP_API_KEY;
+  let yelpKey = process.env.YELP_API_KEY;
   const yelpURL = `https://api.yelp.com/v3/businesses/search?category=restaurants&latitude=47.618249&longitude=-122.351872`;
 
   superagent.get(yelpURL)
-    .set('Authorization', `Bearer ${key}`)
+    .set('Authorization', `Bearer ${yelpKey}`)
     .then(yelpData => {
 
       let restaurantList = JSON.parse(yelpData.text);
       let restaurantData = restaurantList.businesses.map(thisRestaurantData => {
         return new Restaurant(thisRestaurantData)
       })
-      console.log('these are the results:',restaurantData)
-      // res.render('/layout/footer', {results: restaurantData})
+      res.render( 'pages/index',
+        {map: `https://maps.locationiq.com/v2/staticmap?key=${mapKey}&center=47.618249,-122.351872&zoom=16&size=400x400&markers=icon:small-red-cutout|47.618249,-122.351872`,
+          restaurant: restaurantData})
     })
     .catch(err => console.error('Something went wrong', err))
-
 }
 
 function Restaurant(data) {
   this.name = data.name;
   this.url = data.url;
-  this.address = data.display_address;
+  this.address = data.location.display_address;
 }
 
 
@@ -96,22 +89,6 @@ function errorHandler(error, req, res) {
   console.log('Server Error', error);
   res.status(500).send(error);
 }
-
-
-// /// Yelp handler
-app.get('/yelp', yelpHandler);
-
-
-
-
-
-
-function Restaurant(data) {
-  this.name = data.name;
-  this.url = data.url;
-  this.address = data.display_address;
-}
-
 
 
 // client.connect()
