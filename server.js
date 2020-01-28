@@ -5,7 +5,7 @@ require('dotenv').config();
 const express = require('express');
 //added
 var bodyParser = require('body-parser');
-// const superagent = require('superagent');
+const superagent = require('superagent');
 const app = express();
 const PORT = process.env.PORT || 3001;
 // const pg = require('pg');
@@ -76,6 +76,38 @@ function errorHandler(error, req, res) {
   console.log('Server Error', error);
   res.status(500).send(error);
 }
+
+// /// Yelp handler
+app.get('/', yelpHandler);
+
+function yelpHandler (req, res) {
+  console.log('inside yelp handler');
+  let key = process.env.YELP_API_KEY;
+  const yelpURL = `https://api.yelp.com/v3/businesses/search?category=restaurants&latitude=47.618249&longitude=-122.351872`;
+
+  superagent
+    .get(yelpURL)
+    .set('Authorization', `Bearer ${key}`)
+    .then(yelpData => {
+
+      let restaurantList = JSON.parse(yelpData.text);
+      let restaurantData = restaurantList.businesses.map(thisRestaurantData => {
+        return new Restaurant(thisRestaurantData)
+      })
+      console.log('these are the results:',restaurantData)
+      res.render('pages/', {results: restaurantData})
+    })
+    .catch(err => console.error('Something went wrong', err))
+}
+
+
+function Restaurant(data) {
+  this.name = data.name;
+  this.url = data.url;
+  this.address = data.display_address;
+// }
+
+
 
 // client.connect()
 //   .then(() => {
