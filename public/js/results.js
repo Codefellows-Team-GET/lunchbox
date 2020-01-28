@@ -1,6 +1,6 @@
 'use strict';
 
-console.log(JS linked);
+console.log("JS linked");
 
 Lunchbox.prototype.render = function() {
   var lunchboxTableBody = document.getElementById('lunchbox-table-body');

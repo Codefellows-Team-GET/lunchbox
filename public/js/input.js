@@ -1,6 +1,6 @@
 'use strict';
 
-console.log(JS linked);
+console.log("JS linked");
 
 var lunchbox = [];
 
