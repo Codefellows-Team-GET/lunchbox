@@ -51,9 +51,11 @@ app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 app.use(errorHandler);
 
 function homePageLoad(req, res) {
+  let key = process.env.MAP_API_KEY;
   res.render('pages/index', {
     foo: 'bar',
-    map: '../../img/GoogleMapTa.jpg'
+    map: `https://maps.locationiq.com/v2/staticmap?key=${key}&center=47.618249,-122.351872&zoom=16&size=400x400&markers=icon:small-red-cutout|47.618249,-122.351872`
+    // '../../img/GoogleMapTa.jpg'
   });
 }
 
@@ -78,7 +80,7 @@ function errorHandler(error, req, res) {
 }
 
 // /// Yelp handler
-app.get('/', yelpHandler);
+app.get('/yelp', yelpHandler);
 
 function yelpHandler (req, res) {
   console.log('inside yelp handler');
@@ -105,6 +107,16 @@ function Restaurant(data) {
   this.name = data.name;
   this.url = data.url;
   this.address = data.display_address;
+}
+
+/// Map Handler
+// app.post('/' , mapHandler);
+
+// function mapHandler (req, res) {
+//   let key = process.env.MAP_API_KEY;
+//   let latitude = 47.618249;
+//   let longitude = -122.351872;
+//   let url = `https://maps.locationiq.com/v2/staticmap?${key}?${longitude},${latitude}`
 // }
 
 
