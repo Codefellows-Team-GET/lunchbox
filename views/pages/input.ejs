@@ -2,20 +2,40 @@
 <html lang="en">
   <head>
     
-    
     <%- include('../layout/head') %>
     <title>Lunchbox - Input</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Permanent+Marker&display=swap" rel="stylesheet">  </head>
+
+    <link rel="stylesheet" href="css/theme.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Permanent+Marker&display=swap" rel="stylesheet">  
+  
+    <script id="character-template" type="text/x-handlebars-template"> 
+      <h1 class="character">{{'name'}}</h1>
+      </script>
+  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+        $("#namae").text(`${localStorage.getItem('setname')}'s`);
+      });
+      </script>
+  
+  <h1 id="namae">....</h1>
+  
+  
+  </head>
+
   <body>
+
+<h1 class="tempname"></h1>
+
     <div id="page-container">
       <div id="content-wrap">
         <%- include('../layout/header') %>
         <main>
 
           <!--ken's work space VV-->
-          <h1>Hello <%= foo %></h1>
+          <h1><%= foo %></h1>
           <ul>
             <% for(var eatery of restaurants){ %>
               <% if(eatery.name === '7-11'){ %>
@@ -26,6 +46,7 @@
             <% } %>
           </ul>
 
+          
 
           <!--ken's work space ^^-->
 
@@ -62,7 +83,7 @@
                      <option value="&#9733;&#9733;&#9733;&#9733;" class="class-lunchbox">★★★★</option>
                   </select>
                   </br>
-                  <button type="submit" value="submit" class="class-lunchbox submitID" >Submit Only</button>
+                  <button id="um" type="submit" value="submit" class="class-lunchbox submitID" >Submit Only</button>
                   <button type="submit" value="submit" onclick="window.location = 'results';" class="class-lunchbox submitID" >Submit & Results</button>
                 </label>
                </fieldset>
@@ -72,6 +93,13 @@
       </div>
       <%- include('../layout/footer') %>
     </div>
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.2/handlebars.amd.js" type="text/javascript"></script>
     <script src="js/input.js" type="text/javascript"></script>
+    
   </body>
 </html>

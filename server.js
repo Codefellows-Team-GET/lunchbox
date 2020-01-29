@@ -16,6 +16,8 @@ const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 //added
 var path = require('path');
+
+var Handlebars = require('handlebars');
 //added
 // var expressLayouts = require('express-ejs-layouts');
 
@@ -73,9 +75,11 @@ function Restaurant(data) {
 
 function inputPageLoad(req, res) {
   res.render('pages/input', {
-    foo: 'bar',
+    foo: 'Pick your spot =>',
     restaurants:[{name: '7-11'}, {name: 'subway'}]
   });
+
+
 }
 
 function resultsPageLoad(req, res) {
