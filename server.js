@@ -33,6 +33,7 @@ app.use(cors());
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
+// app.use(express.static('/'));
 // app.get('');
 app.get('/', homePageLoad);
 app.get('/input', inputPageLoad);
@@ -167,20 +168,20 @@ function getRes(req, res) {
         console.log( 'no restaraunts?' )
       } else {
         // console.log(results.body, 'this is results.body 13')
-        let restResults = results.rows.map( restaraunt => {
-          let newRes = {};
-          newRes.id = restaraunt.id;
-          newRes.username = restaraunt.username;
-          newRes.name = restaraunt.name;
-          newRes.walk = restaraunt.walk;
-          newRes.wait = restaraunt.wait;
-          newRes.total = restaraunt.total;
-          newRes.price = restaraunt.price;
-          newRes.rating = restaraunt.rating;
-          console.log(newRes, 'This is newRes');
-          return newRes;
-        })
-        res.render('/pages/results', {results: restResults})
+        // let restResults = results.rows.map( restaraunt => {
+        //   let newRes = {};
+        //   newRes.id = restaraunt.id;
+        //   newRes.username = restaraunt.username;
+        //   newRes.name = restaraunt.name;
+        //   newRes.walk = restaraunt.walk;
+        //   newRes.wait = restaraunt.wait;
+        //   newRes.total = restaraunt.total;
+        //   newRes.price = restaraunt.price;
+        //   newRes.rating = restaraunt.rating;
+        //   console.log(newRes, 'This is newRes');
+        //   return newRes;
+        // })
+        res.render('pages/results', {results: results.rows})
       }
     })
     .catch(errorHandler);
