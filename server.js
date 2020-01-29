@@ -1,8 +1,5 @@
 'use strict';
 
-// const Index = require('./public/js/index');
-// const Input = require('./public/js/input');
-// const getRes = require('./public/js/results');
 
 require('dotenv').config();
 
@@ -16,6 +13,8 @@ const pg = require('pg');
 const cors = require('cors');
 //added
 var path = require('path');
+
+var Handlebars = require('handlebars');
 //added
 // var expressLayouts = require('express-ejs-layouts');
 
@@ -40,7 +39,7 @@ app.get('/input', inputPageLoad);
 // app.get('/results', resultsPageLoad);
 app.get('/results', getRes);
 app.get('/about', aboutPageLoad);
-app.post('/addRestaurant', addRes);
+// app.post('/addRestaurant', addRes);
 app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 
 app.use(errorHandler);
@@ -72,14 +71,13 @@ function Restaurant(data) {
 
 
 
-
-
-
 function inputPageLoad(req, res) {
   res.render('pages/input', {
-    foo: 'bar',
+    foo: 'Pick your spot =>',
     restaurants:[{name: '7-11'}, {name: 'subway'}]
   });
+
+
 }
 
 function resultsPageLoad(req, res) {

@@ -2,7 +2,14 @@
 <html lang="en">
   <head>
     <%- include('../layout/head') %>
-    <title>Lunch Box - Home</title>
+    <title>Lunchbox - Home</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/module.css">
+    <link rel="stylesheet" href="css/state.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Permanent+Marker&display=swap" rel="stylesheet">
   </head>
   <body>
 
@@ -13,16 +20,15 @@
         
         <main>
 
-    <!--ken's work space VV-->
-    <!-- added / not working -->
-    <img src="<%= map %>" alt="map" width="250px">
-
-    <form action="">
-      What is your name?:<br>
-      <input type="text" name="firstname" value="Your name please"><br>
-      <button id="topage2">click <a href="/input"></a></button>
-    </form>
-
+    <!-- Static Map -->
+    <section id=map>
+      <img id=staticMap src="<%= map %>" alt="map">
+    </section>
+<!-- User name input -->
+  <form class="pure-form" action="/input">
+    <input id="name" type="text" placeholder="Enter Name" />
+    <button id="topage2" onclick="submitInfo()" type="submit"><i class="fa fa-chevron-circle-right"></i>submit <a href="input.ejs"></a></button>
+  </form>
     <!--ken's work space ^^-->
 
 
@@ -30,7 +36,7 @@
           <!-- API info goes below -->
 
           <!-- Caits workspace for yelp -->
-  <section>
+  <section id=yelp>
       <ul>
 
         <% restaurant.forEach(obj => { %>
