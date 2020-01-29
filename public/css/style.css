@@ -30,7 +30,8 @@ main {
     align-items: center;;
     padding: 10px;
     font-family: 'Noto Sans TC', sans-serif;
-    line-height: 25px
+    line-height: 25px;
+    padding-bottom: 50px;
 }
 
 /* Nav Bar */
@@ -159,14 +160,27 @@ a:hover {
 footer {
     height: 50px;
     line-height: 50px;
-    /* border-top: dashed 1px black; */
     margin-top: 20px;
     text-align: center;
     padding: 5px;
     width: 100%;
     font-size: 18px;
+    bottom: 0;
 
 }
+
+/*  about us */
+
+.photo { 
+    width: 200px;
+    border-radius: 20%;
+}
+
+.icon {
+    width: 25px;
+}
+
+
 
 /* End Index */
 
@@ -181,16 +195,15 @@ footer {
     main {
         display: flex;
         margin: auto;
+        padding-bottom: 50px;
     }
 
     footer {
         height: 50px;
         line-height: 50px;
-        /* border-top: dashed 1px black; */
-        margin-top: 20px;
         text-align: center;
         padding: 5px;
-        position: absolute;
+        /* position: absolute; */
         bottom: 0;
         width: 100%;
         font-size: 18px;
