@@ -9,8 +9,7 @@
 
     <div id="page-container">
       <div id="content-wrap">
-        <%- include('../layout/header') %>
-        
+        <%- include('../layout/header') %>        
         
         <main>
 
@@ -42,14 +41,9 @@
             </div>
           </form>
 
+          <!-- Map -->
+          <%- include('../layout/map') %>
 
-
-
-
-    <!-- Static Map -->
-    <section id=map>
-      <img id=staticMap src="<%= map %>" alt="map">
-    </section>
 <!-- User name input -->
   <form class="pure-form" action="/input">
     <input id="name" type="text" placeholder="Enter Name" />
