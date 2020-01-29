@@ -127,3 +127,9 @@ footer {
 .icon {
   width: 25px;
 }
+
+/* Dynamic map */
+
+#maps {
+  height: 180px;
+}

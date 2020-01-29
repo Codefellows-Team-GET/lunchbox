@@ -14,7 +14,7 @@ const cors = require('cors');
 //added
 var path = require('path');
 
-var Handlebars = require('handlebars');
+// var Handlebars = require('handlebars');
 //added
 // var expressLayouts = require('express-ejs-layouts');
 
@@ -67,6 +67,7 @@ function Restaurant(data) {
   this.name = data.name;
   this.url = data.url;
   this.address = data.location.display_address;
+  this.phone - data.display_phone;
 }
 
 
