@@ -47,42 +47,56 @@
             <% } %>
           </ul>
 
+
           <!-- Reuse Homepage Hero here or new image? -->
           <div id ="div-form">
             <form action = '/addRestaurant' method="post" id="new-lunchbox">
                <fieldset>
+
                   <legend>Restaurant Details</legend>
-                  <label>User Name:
-                  <input type="text" id="user-name" class="class-lunchbox" required />
-                  </label></br>
-                  <label>Restaurant Name:
-                  <input type="text" id="res-name" class="class-lunchbox" required/>
-                  </label></br>
-                  <label>Walk Time:
-                  <input type="number" id="walk-time"class="class-lunchbox" required>
-                  </label></br>
-                  <label id="wait">Wait Time:
-                  <input type="number" id="wait-time"class="class-lunchbox" required>
-                  </label></br>
+                  <label>
+                    User Name:
+                    <input type="text" name="userName" class="class-lunchbox" required />
+                  </label>
+                  <br />
+                  <label>
+                    Restaurant Name:
+                    <input type="text" name="resName" class="class-lunchbox" required />
+                  </label>
+                  <br />
+                  <label>
+                    Walk Time:
+                    <input type="number" name="walkTime" class="class-lunchbox" required />
+                  </label>
+                  <br />
+                  <label id="wait">
+                    Wait Time:
+                    <input type="number" name="waitTime" class="class-lunchbox" required />
+                  </label>
+                  
+                  <br />
+
                   Price:
-                  <select id="price"class="class-lunchbox">
+                  <select name="price" class="class-lunchbox">
                      <option value="&#36;" class="class-lunchbox">Less than $10</option>
                      <option value="&#36;&#36;" class="class-lunchbox">$10 - $15</option>
                      <option value="&#36;&#36;&#36;" class="class-lunchbox">More than $15</option>
                   </select>
-                  </br>
+
+                  <br />
                   <span>Rating:</span>
-                  <select id="rating"class="class-lunchbox">
-                    <!-- Star sign refered from https://www.alt-codes.net/star_alt_code.php -->
+                  <select name="rating" class="class-lunchbox">
                      <option value="&#9733;&#9734;&#9734;&#9734;" class="class-lunchbox">★☆☆☆</option>
                      <option value="&#9733;&#9733;&#9734;&#9734;" class="class-lunchbox">★★☆☆</option>
                      <option value="&#9733;&#9733;&#9733;&#9734;" class="class-lunchbox">★★★☆</option>
                      <option value="&#9733;&#9733;&#9733;&#9733;" class="class-lunchbox">★★★★</option>
                   </select>
+
                   </br>
                   <button id="um" type="submit" value="submit" class="class-lunchbox submitID" >Submit Only</button>
                   <button type="submit" value="submit" onclick="window.location = 'results';" class="class-lunchbox submitID" >Submit & Results</button>
                 </label>
+
                </fieldset>
             </form>
           </div>
