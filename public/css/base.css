@@ -1,0 +1,50 @@
+/* cait's CSS  */
+
+/* 
+dark #171820
+yellow #fdc029
+orange df861d
+red aa3d01
+grey #bcb6ae
+*/
+
+* {
+  /* box-sizing: border-box; */
+}
+
+
+
+body { 
+  background-image: url("/img/wood\ table\ .jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  display: flexbox;
+  width: 80%;
+  background-color: #49494bbb;
+  border: solid 8px #fdc029;
+  color: white;
+  margin: auto;
+  align-items: center;;
+  padding: 10px;
+  font-family: 'Noto Sans TC', sans-serif;
+  line-height: 25px;
+  padding-bottom: 50px;
+}
+
+h1 { 
+  color: #fdc029;
+  font-size: 3em;
+  font-weight: bolder;
+  padding: 10px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+/*  font stuff */
+h2 { 
+  color: #2abe3e;
+  font-size: 16pt;
+  font-weight: bolder;
+}

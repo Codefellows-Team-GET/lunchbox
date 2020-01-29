@@ -1,0 +1,26 @@
+/* DESKTOP VIEW */
+
+@media (min-width: 960px) {
+
+  body {
+      margin: auto;
+  }
+
+  main {
+      display: flex;
+      margin: auto;
+      padding-bottom: 50px;
+  }
+
+  footer {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      padding: 5px;
+      /* position: absolute; */
+      bottom: 0;
+      width: 100%;
+      font-size: 18px;
+  }
+
+}
