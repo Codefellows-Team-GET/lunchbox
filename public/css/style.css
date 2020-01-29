@@ -23,7 +23,7 @@ body {
 main {
     display: flexbox;
     width: 80%;
-    background-color: #49494b;
+    background-color: #49494bbb;
     border: solid 8px #fdc029;
     color: white;
     margin: auto;
@@ -89,11 +89,24 @@ h1 {
 }
 /* End page header  */
 
+/*  font stuff */
+
 h2 { 
     color: #2abe3e;
-    font-size: 14pt;
-    font-weight: bold;
+    font-size: 16pt;
+    font-weight: bolder;
 }
+
+/*  link stuff  */
+
+a {
+    color: rgb(44, 253, 183)
+}
+
+a:hover {
+    color: rgb(235, 79, 79);
+}
+
 
 /* Index page */
 #map {
@@ -109,19 +122,39 @@ h2 {
 }
 
 #yelp { 
-    width: 100%;
+    width: 80%;
     height: 325px;
     overflow: scroll;
     margin: auto;
     margin-top: 1em;
     margin-bottom: 1em;
     text-align: center;
-
 }
 
 .pure-form {
     text-align: center;;
 }
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-corner {
+      background: #fdc029;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #fdc029;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fdc029;
+  }
 
 footer {
     height: 50px;
