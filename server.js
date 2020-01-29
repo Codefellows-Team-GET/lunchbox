@@ -39,7 +39,7 @@ app.get('/input', inputPageLoad);
 // app.get('/results', resultsPageLoad);
 app.get('/results', getRes);
 app.get('/about', aboutPageLoad);
-// app.post('/addRestaurant', addRes);
+app.post('/addRestaurant', addRes);
 app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 
 app.use(errorHandler);
@@ -155,19 +155,19 @@ function addRes(req, res) {
 
 function getRes(req, res) {
   console.log('what')
-  console.log('res.body: ', res.body);
-  res.body.resData = {};
+  // console.log('res.body: ', res.body);
+  // res.body.resData = {};
 
   let SQL = 'SELECT * from saved_res;';
 
   return client.query(SQL)
     .then(results => {
       console.log('get results results', results.rows);
-      if( results.rowCount === 0 ) {
+      if( results.rows.length === 0 ) {
         console.log( 'no restaraunts?' )
       } else {
-        console.log(results.body, 'this is results.body 13')
-        results.body.resData = results.rows.map( restaraunt => {
+        // console.log(results.body, 'this is results.body 13')
+        let restResults = results.rows.map( restaraunt => {
           let newRes = {};
           newRes.id = restaraunt.id;
           newRes.username = restaraunt.username;
@@ -180,10 +180,9 @@ function getRes(req, res) {
           console.log(newRes, 'This is newRes');
           return newRes;
         })
+        res.render('/pages/results', {results: restResults})
       }
-      res.render('../../views/pages/results', {results: results.rows})
     })
-
     .catch(errorHandler);
 }
 
