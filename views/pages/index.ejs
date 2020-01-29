@@ -41,6 +41,7 @@
 
         <% restaurant.forEach(obj => { %>
           <h2><%= obj.name %></h2>
+          <li><%= obj.phone %></li>
           <li><%= obj.address %></li>
           <li><a href=<%=obj.url%>>Link to website</a></li>
         <% }) %>
