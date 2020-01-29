@@ -58,17 +58,42 @@ a:hover {
 }
 
 /* Index page */
+
+/* Map */
 #map {
-  width: 100%;
+  width: 90%;
+  height: 500px;
+  margin: 10px;
 }
 
-#staticMap {
+.map {
   display: flex;
   width: 70%;
   margin: 2em auto;
   border: solid 1px #fdc029;
   border-radius: 5%;
+  position: relative;
 }
+
+/* #instructions {
+  position: absolute;
+  margin: 20px;
+  width: 25%;
+  top: 0;
+  bottom: 20%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-y: scroll;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  line-height: 2em;
+}
+
+.duration {
+  font-size: 2em;
+} */
+
+/*  End Map */
 
 #yelp { 
   width: 80%;
@@ -126,10 +151,4 @@ footer {
 
 .icon {
   width: 25px;
-}
-
-/* Dynamic map */
-
-#maps {
-  height: 180px;
 }
