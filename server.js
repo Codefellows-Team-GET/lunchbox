@@ -5,40 +5,25 @@ require('dotenv').config();
 const methodOverride = require('method-override');
 
 const express = require('express');
-//added
-// var bodyParser = require('body-parser');
 const superagent = require('superagent');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const pg = require('pg');
 const cors = require('cors');
-//added
-var path = require('path');
 
-// var Handlebars = require('handlebars');
-//added
-// var expressLayouts = require('express-ejs-layouts');
+// var path = require('path');
 
 const client = new pg.Client(process.env.DATABASE_URL);
 client.on('error', err => console.error(err));
 
-//added all
-// app.use(bodyParser.urlencoded());
-// app.use(bodyParser.json());
-// app.set('views/pages', path.join(__dirname, 'pages'));
 
 app.use(cors());
-//added
-// app.use(expressLayouts);
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
-// app.use(express.static('/'));
-// app.get('');
 app.get('/', homePageLoad);
 app.get('/input', inputPageLoad);
-// app.get('/results', resultsPageLoad);
 app.get('/results', getRes);
 app.get('/about', aboutPageLoad);
 app.post('/addRestaurant', addRes);
@@ -116,15 +101,13 @@ function updateRest(req, res) {
 function inputPageLoad(req, res) {
   res.render('pages/input', {
     foo: 'Pick your spot =>',
-    restaurants:[{name: '7-11'}, {name: 'subway'}]
+    restaurants:[{name: ''}, {name: ''}]
   });
-
-
 }
 
-function resultsPageLoad(req, res) {
-  res.render('./views/pages/results');
-}
+// function resultsPageLoad(req, res) {
+//   res.render('./views/pages/results');
+// }
 
 function aboutPageLoad(req, res) {
   res.render('pages/about');
@@ -135,7 +118,7 @@ function errorHandler(error, req, res) {
   res.status(404).send(error);
 }
 
-// Below is the stuff for trying to get the info into the database and from database to render on the page.
+// Below is the stuff for taking the posted data from the form on the input page, putting the info into the database and taking it from the database to render on the results page.
 
 var lunchbox = [];
 
@@ -152,33 +135,7 @@ function Lunchbox(userName, resName, walkTime, waitTime, price, rating) {
   lunchbox.push(this);
 }
 
-// This is the function that will take in the data entered in the form and put in the constructor function.
-
-// function handleFormSubmitted(event) {
-//   event.preventDefault();
-//   console.log('event', event);
-
-//   var resNameInput = document.getElementById('res-name');
-//   var resNameValue = resNameInput.value;
-
-//   var walkTimeInput = document.getElementById('walk-time');
-//   var walkTimeValue = walkTimeInput.value;
-
-//   var waitTimeInput = document.getElementById('wait-time');
-//   var waitTimeValue = waitTimeInput.value;
-
-//   var totalTimeValue = this.totalTime;
-
-//   var priceInput = document.getElementById('price');
-//   var priceValue = priceInput.value;
-
-//   var ratingInput = document.getElementById('rating');
-//   var ratingValue = ratingInput.value;
-
-//   var newLunchbox = new Lunchbox(resNameValue, walkTimeValue, waitTimeValue, totalTimeValue, priceValue, ratingValue);
-// }
-
-// Below is the function that will add restaraunt data to the database
+// Below is the function that will take the posted restaraunt data from the form and add it to the database and send the user to the results page.
 
 function addRes(req, res) {
   console.log(req.body, 'this is req.body');
@@ -194,10 +151,16 @@ function addRes(req, res) {
     .catch(err => errorHandler(err, res));
 }
 
+// Below is the function that will get the restaraunt data from the database and render to the results page. 
+
 function getRes(req, res) {
+<<<<<<< HEAD
   // console.log('what')
   // console.log('res.body: ', res.body);
   // res.body.resData = {};
+=======
+  console.log('what')
+>>>>>>> 4efb79f2c537d4ddb26951b85aee0b5c3b11e0e6
 
   let SQL = 'SELECT * from saved_res;';
 
@@ -207,142 +170,81 @@ function getRes(req, res) {
       if( results.rows.length === 0 ) {
         console.log( 'no restaraunts?' )
       } else {
-        // console.log(results.body, 'this is results.body 13')
-        // let restResults = results.rows.map( restaraunt => {
-        //   let newRes = {};
-        //   newRes.id = restaraunt.id;
-        //   newRes.username = restaraunt.username;
-        //   newRes.name = restaraunt.name;
-        //   newRes.walk = restaraunt.walk;
-        //   newRes.wait = restaraunt.wait;
-        //   newRes.total = restaraunt.total;
-        //   newRes.price = restaraunt.price;
-        //   newRes.rating = restaraunt.rating;
-        //   console.log(newRes, 'This is newRes');
-        //   return newRes;
-        // })
         res.render('pages/results', {results: results.rows})
       }
     })
     .catch(errorHandler);
 }
 
-// console.log(Lunchbox.prototype.render, 'is this a string')
 
-Lunchbox.prototype.render = function() {
-  var lunchboxTableBody = document.getElementById('lunchbox-table-body');
+// Below are the functions for sorting lunchbox array based on different clicks on the table headers. They need to be rewritten for EJS
 
-  var lunchboxRow = document.createElement('tr');
+// function sortByWalkTime (event) {
+//   lunchbox.sort(function (a, b) {
+//     return a.walkTime - b.walkTime;
+//   });
+//   var lunchboxTableBody = document.getElementById('lunchbox-table-body');
+//   lunchboxTableBody.innerHTML = '';
+//   for (var i = 0; i <lunchbox.length; i++) {
+//     lunchbox[i].render();
+//   }
+// }
 
-  var userNameCell = document.createElement('td');
-  var userNameCap = this.userName[0].toUpperCase() + this.userName.slice(1).toLowerCase();
-  userNameCell.textContent = userNameCap;
-  lunchboxRow.appendChild(userNameCell);
+// function sortByWaitTime (event) {
+//   lunchbox.sort(function (a, b) {
+//     return a.waitTime - b.waitTime;
+//   });
+//   var lunchboxTableBody = document.getElementById('lunchbox-table-body');
+//   lunchboxTableBody.innerHTML = '';
+//   for (var i = 0; i <lunchbox.length; i++) {
+//     lunchbox[i].render();
+//   }
+// }
 
-  var resNameCell = document.createElement('td');
-  resNameCell.textContent = this.resName;
-  lunchboxRow.appendChild(resNameCell);
+// function sortByTotalTime (event) {
+//   lunchbox.sort(function (a, b) {
+//     return a.totalTime - b.totalTime;
+//   });
+//   var lunchboxTableBody = document.getElementById('lunchbox-table-body');
+//   lunchboxTableBody.innerHTML = '';
+//   for (var i = 0; i <lunchbox.length; i++) {
+//     lunchbox[i].render();
+//   }
+// }
 
-  var walkTimeCell = document.createElement('td');
-  walkTimeCell.textContent = this.walkTime;
-  lunchboxRow.appendChild(walkTimeCell);
+// function sortByPrice (event) {
+//   lunchbox.sort(function (a, b) {
+//     if (a.price.length > b.price.length) {
+//       return 1;
+//     }
+//     else if (b.price.length > a.price.length) {
+//       return -1;
+//     }
+//   });
+//   var lunchboxTableBody = document.getElementById('lunchbox-table-body');
+//   lunchboxTableBody.innerHTML = '';
+//   for (var i = 0; i <lunchbox.length; i++) {
+//     lunchbox[i].render();
+//   }
+// }
 
-  var waitTimeCell = document.createElement('td');
-  waitTimeCell.textContent = this.waitTime;
-  lunchboxRow.appendChild(waitTimeCell);
+// function sortByRating (event) {
+//   lunchbox.sort(function (a, b) {
+//     if (a.rating > b.rating) {
+//       return 1;
+//     }
+//     else if (b.rating > a.rating) {
+//       return -1;
+//     }
+//   });
 
-  var totalTimeCell = document.createElement('td');
-  totalTimeCell.textContent = this.totalTime;
-  lunchboxRow.appendChild(totalTimeCell);
+//   var lunchboxTableBody = document.getElementById('lunchbox-table-body');
+//   lunchboxTableBody.innerHTML = '';
+//   for (var i = 0; i <lunchbox.length; i++) {
+//     lunchbox[i].render();
+//   }
+// }
 
-  var priceCell = document.createElement('td');
-  priceCell.textContent = this.price;
-  lunchboxRow.appendChild(priceCell);
-
-  var ratingCell = document.createElement('td');
-  ratingCell.textContent = this.rating;
-  lunchboxRow.appendChild(ratingCell);
-
-  lunchboxTableBody.appendChild(lunchboxRow);
-
-
-};
-
-for (var i = 0; i <lunchbox.length; i++) {
-  lunchbox[i].render();
-}
-
-// Below are the functions for sorting lunchbox array based on different clicks on the table headers.
-
-function sortByWalkTime (event) {
-  lunchbox.sort(function (a, b) {
-    return a.walkTime - b.walkTime;
-  });
-  var lunchboxTableBody = document.getElementById('lunchbox-table-body');
-  lunchboxTableBody.innerHTML = '';
-  for (var i = 0; i <lunchbox.length; i++) {
-    lunchbox[i].render();
-  }
-}
-
-function sortByWaitTime (event) {
-  lunchbox.sort(function (a, b) {
-    return a.waitTime - b.waitTime;
-  });
-  var lunchboxTableBody = document.getElementById('lunchbox-table-body');
-  lunchboxTableBody.innerHTML = '';
-  for (var i = 0; i <lunchbox.length; i++) {
-    lunchbox[i].render();
-  }
-}
-
-function sortByTotalTime (event) {
-  lunchbox.sort(function (a, b) {
-    return a.totalTime - b.totalTime;
-  });
-  var lunchboxTableBody = document.getElementById('lunchbox-table-body');
-  lunchboxTableBody.innerHTML = '';
-  for (var i = 0; i <lunchbox.length; i++) {
-    lunchbox[i].render();
-  }
-}
-
-function sortByPrice (event) {
-  lunchbox.sort(function (a, b) {
-    if (a.price.length > b.price.length) {
-      return 1;
-    }
-    else if (b.price.length > a.price.length) {
-      return -1;
-    }
-  });
-  var lunchboxTableBody = document.getElementById('lunchbox-table-body');
-  lunchboxTableBody.innerHTML = '';
-  for (var i = 0; i <lunchbox.length; i++) {
-    lunchbox[i].render();
-  }
-}
-
-function sortByRating (event) {
-  lunchbox.sort(function (a, b) {
-    if (a.rating > b.rating) {
-      return 1;
-    }
-    else if (b.rating > a.rating) {
-      return -1;
-    }
-  });
-
-  var lunchboxTableBody = document.getElementById('lunchbox-table-body');
-  lunchboxTableBody.innerHTML = '';
-  for (var i = 0; i <lunchbox.length; i++) {
-    lunchbox[i].render();
-  }
-}
-
-
-// var formElement = document.getElementById('new-lunchbox');
-// formElement.addEventListener('submit', handleFormSubmitted);
 
 
 
