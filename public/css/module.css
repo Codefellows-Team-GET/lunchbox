@@ -127,13 +127,14 @@ footer {
 /*  about us */
 
 .photo { 
+  /* display: inline-flexbox; */
   width: 200px;
   border-radius: 20%;
 }
 
 .icon {
-  width: 50px;
-  margin: 20px;
+  width: 30px;
+  margin: 10px;
 }
 
 
@@ -146,6 +147,7 @@ footer {
   border-spacing: 0 1em;
   color: white;
   width: 80%;
+  text-align: center;
 }
 
 .teamMember {
@@ -159,6 +161,11 @@ footer {
   text-align: center;
   vertical-align: middle;
 }
+
+/* .teamMemberName {
+  width: 100%;
+  display: inline-flex;
+} */
 
 .paraCell{
 width: auto ;  
