@@ -18,8 +18,6 @@
     <form class="pure-form" action="/input">
       <label for="name"><i class="fa fa-key fa-lg"></i><b>Login</b></label>
       <input id="name" type="text" placeholder="Enter Name" name="name"/>
-      <label for="psw"><b>Admin</b></label>
-      <input id="pw" type="password" placeholder="Optional" name="psw"> <!-- maybe add required -->
       <button id="topage2" onclick="submitInfo()" type="submit">submit <a href="input.ejs"><i class="fa fa-arrow-circle-right fa-lg"></i></a></button>
     </form>
   </div>
@@ -49,6 +47,11 @@
     </section>
         
         </main>
+        <div id="admin">
+        <label for="psw"><b>Admin</b></label>
+        <input id="pw" type="password" placeholder="Optional" name="psw"> <!-- maybe add required -->
+      </div>
+        
       </div>
       <%- include('../layout/footer') %>
     </div>

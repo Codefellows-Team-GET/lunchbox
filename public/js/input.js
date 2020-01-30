@@ -1,7 +1,7 @@
 'use strict';
 
 
-confirm(`Hi ${localStorage.getItem('setname')}! Welcome to lunchbox`)
+// confirm(`Hi ${localStorage.getItem('setname')}! Welcome to lunchbox`)
 
 //handlebars attempt
 // var cast = {
