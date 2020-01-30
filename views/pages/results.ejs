@@ -5,6 +5,15 @@
     
     <%- include('../layout/head') %>
     <title>Lunchbox - Results</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      $("#namae").text(`${localStorage.getItem('setname')}'s`);
+    });
+    </script>
+
+<h1 id="namae">....</h1>
  </head>
   <body>
     <div id="page-container">
