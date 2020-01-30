@@ -3,10 +3,11 @@
 console.log('JS linked');
 
 $(".sort").click(function(){
-  console.log('something was clicked', $(this).text())
+  console.log('something was clicked', $(this).attr('id'));
   $.ajax({
-    type: "POST",
-    url: "/sort",
-    data: $(this).text(),
-    dataType: "JSON"
+    type: "GET",
+    url: `/sort/${$(this).attr('id')}`,
+    // data: $(this).attr('id'),
+    // dataType: "JSON"
+  });
 });

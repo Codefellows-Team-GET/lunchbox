@@ -33,6 +33,9 @@ app.get('/update/:id', findDetails);
 app.post('/update/:id', showUpdateForm);
 app.put('/update/:id', updateRest);
 
+///Sort///
+app.get('/sort/:id', sortRest);
+// app.put('/sort/:id', getRes);
 
 ///Errors///
 app.get('*', (req, res) => res.status(404).send('This route does not exist'));
@@ -119,7 +122,7 @@ function addRes(req, res) {
     .catch(err => errorHandler(err, res));
 }
 
-// Below is the function that will get the restaraunt data from the database and render to the results page. 
+// Below is the function that will get the restaraunt data from the database and render to the results page.
 
 function getRes(req, res) {
 
@@ -175,16 +178,20 @@ function updateRest(req, res) {
 
 
 
-// Below are the functions for sorting lunchbox array based on different clicks on the table headers. They need to be rewritten for EJS
+// Below is the functions for sorting lunchbox array based on different clicks on the table headers.
 
 function sortRest(req, res) {
-  let SQL = 'SELECT column-list FROM saved_res [ORDER BY column1, column2, .. columnN] [ASC | DESC];';
+  console.log('Hi from sortRest')
+  let SQL = 'SELECT * FROM saved_res ORDER BY $1 [ASC | DESC];';
 
   let values = [req.params.id];
 
   client.query(SQL, values)
   return client.query(SQL, values)
-    .then(res.render('pages/results', {results: results.rows}))
+    .then(results => {
+      console.log('hi from response render');
+      res.render('pages/results', {results: results.rows})
+    })
     .catch(err => errorHandler(err, res));
 }
 
