@@ -19,6 +19,7 @@
               </td>
             </tr>
             <tr>
+
               <th class="sort" id="id">ID</th>
               <th class="sort" id="username">User Name</th>
               <th class="sort" id="resname">Restaraunt Name</th>
@@ -27,12 +28,14 @@
               <th class="sort" id="totaltime">Total Time</th>
               <th class="sort" id="price">Price</th>
               <th class="sort" id="rating">Rating</th>
+
             </tr>
             <tbody id="lunchbox-table-body">
 
               <% for(let i = 0; i < results.length; i++) { %>
                 <tr>
-                <td><%= results[i].id %></td>
+                
+                <!-- <td><%= results[i].id %></td> -->
                 <td><%= results[i].username %></td>
                 <td><%= results[i].resname %></td>
                 <td><%= results[i].walktime %></td>
@@ -54,7 +57,9 @@
 
     <script src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="js/results.js" type="text/javascript"></script>
+
     <!-- <script src="server.js" type="text/javascript"></script> -->
+
 
   </body>
 </html>

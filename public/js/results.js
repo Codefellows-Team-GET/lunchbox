@@ -9,5 +9,6 @@ $(".sort").click(function(){
     url: `/sort/${$(this).attr('id')}`
     // data: $(this).attr('id'),
     // dataType: "JSON"
+
   });
 });
