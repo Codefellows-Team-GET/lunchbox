@@ -2,7 +2,6 @@
 
 
 require('dotenv').config();
-const methodOverride = require('method-override');
 
 const express = require('express');
 const superagent = require('superagent');
@@ -27,17 +26,12 @@ app.get('/input', inputPageLoad);
 app.get('/results', getRes);
 app.get('/about', aboutPageLoad);
 app.post('/addRestaurant', addRes);
-
-///Update///
-app.use((methodOverride('_method')));
-app.get('/update/:id', findDetails);
-app.post('/update/:id', showUpdateForm);
-app.put('/update/:id', updateRest);
-
 app.get('*', (req, res) => res.status(404).send('This route does not exist'));
+
 app.use(errorHandler);
 
 function homePageLoad(req, res) {
+  let mapKey = process.env.MAP_API_KEY;
   let yelpKey = process.env.YELP_API_KEY;
   const yelpURL = `https://api.yelp.com/v3/businesses/search?category=restaurants&latitude=47.618249&longitude=-122.351872`;
 
@@ -49,7 +43,8 @@ function homePageLoad(req, res) {
         return new Restaurant(thisRestaurantData)
       })
       res.render( 'pages/index',
-        {restaurant: restaurantData})
+        {map: `https://maps.locationiq.com/v2/staticmap?key=${mapKey}&center=47.618249,-122.351872&zoom=16&size=400x400&markers=icon:small-red-cutout|47.618249,-122.351872`,
+          restaurant: restaurantData})
     })
     .catch(err => console.error('Something went wrong', err))
 }
@@ -61,41 +56,6 @@ function Restaurant(data) {
   this.phone - data.display_phone;
 }
 
-function findDetails(req, res) {
-  let SQL = 'SELECT * FROM saved_res WHERE id=$1;';
-
-  let values = [req.params.id];
-
-  client.query(SQL, values)
-    .then((results) => {
-      // console.log('this is results in findDetails function', results.rows[0]);
-      res.render('pages/update.ejs', {results: results.rows[0]})
-    })
-    .catch(err => errorHandler(err, res));
-}
-
-
-function showUpdateForm(req, res) {
-  console.log('you are redirecting to update form')
-  res.status(200).render('pages/update.ejs');
-}
-
-
-
-
-function updateRest(req, res) {
-  console.log(req.params.id);
-  console.log('updating form')
-  let { userName, resName, walkTime, waitTime, price, rating } = req.body;
-
-  let SQL = `UPDATE saved_res SET userName=$1, resName=$2, walkTime=$3, totalTime=$4, waitTime=$5, price=$6, rating =$7 WHERE id=$8;`;
-
-  let newValues = [userName, resName, walkTime, waitTime, 20 , price, rating, req.params.id];
-
-  return client.query(SQL, newValues)
-    .then(res.redirect('/results'))
-    .catch(err => errorHandler(err, res));
-}
 
 
 function inputPageLoad(req, res) {
@@ -115,7 +75,7 @@ function aboutPageLoad(req, res) {
 
 function errorHandler(error, req, res) {
   console.log('Server Error', error);
-  res.status(404).send(error);
+  res.status(500).send(error);
 }
 
 // Below is the stuff for taking the posted data from the form on the input page, putting the info into the database and taking it from the database to render on the results page.
@@ -154,13 +114,13 @@ function addRes(req, res) {
 // Below is the function that will get the restaraunt data from the database and render to the results page. 
 
 function getRes(req, res) {
-  res.body.resData = {};
+  console.log('what')
 
   let SQL = 'SELECT * from saved_res;';
 
   return client.query(SQL)
     .then(results => {
-      // console.log('get results results', results.rows);
+      console.log('get results results', results.rows);
       if( results.rows.length === 0 ) {
         console.log( 'no restaraunts?' )
       } else {
