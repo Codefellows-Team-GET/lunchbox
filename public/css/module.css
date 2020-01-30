@@ -50,7 +50,7 @@
 
 /*  link stuff  */
 a {
-  color: rgb(44, 253, 183)
+  color: rgb(75, 180, 145)
 }
 
 a:hover {
@@ -74,24 +74,6 @@ a:hover {
   border-radius: 5%;
   position: relative;
 }
-
-/* #instructions {
-  position: absolute;
-  margin: 20px;
-  width: 25%;
-  top: 0;
-  bottom: 20%;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  overflow-y: scroll;
-  font-family: sans-serif;
-  font-size: 0.8em;
-  line-height: 2em;
-}
-
-.duration {
-  font-size: 2em;
-} */
 
 /*  End Map */
 
@@ -150,6 +132,42 @@ footer {
 }
 
 .icon {
-  width: 25px;
+  width: 50px;
+  margin: 20px;
 }
 
+
+/* About Page */
+.aboutTable {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  color: white;
+  width: 80%;
+}
+
+.teamMember {
+  width:fit-content ;   
+  color: #fdc129;
+  font-family: 'Permanent Marker', cursive;
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 10px;
+  font-size:50px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.paraCell{
+width: auto ;  
+border: dashed 2px #fdc129;
+border-radius: 15px;
+padding: 15px;
+font-family: 'Noto Sans TC', sans-serif;
+font-size: 20px;
+text-align:justify;
+display: inline-block;
+vertical-align: middle;
+}
