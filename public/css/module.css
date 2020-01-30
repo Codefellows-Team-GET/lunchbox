@@ -184,3 +184,8 @@ text-align:justify;
 display: inline-block;
 vertical-align: middle;
 }
+
+
+#div-form-update {
+  margin: auto;
+}
