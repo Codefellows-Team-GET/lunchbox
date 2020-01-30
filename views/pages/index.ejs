@@ -9,8 +9,7 @@
 
     <div id="page-container">
       <div id="content-wrap">
-        <%- include('../layout/header') %>
-        
+        <%- include('../layout/header') %>        
         
         <main>
 
@@ -25,10 +24,19 @@
     </form>
   </div>
 
-    <!-- Static Map -->
-    <section id=map>
-      <img id=staticMap src="<%= map %>" alt="map">
-    </section>
+          <form action="action_page.php" method="post">
+            <div class="imgcontainer">
+              <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+              <span style="font-size: 3em;">
+                <i class="fas fa-key"></i>
+              </span>
+
+            </div>
+
+          <!-- Map -->
+          <%- include('../layout/map') %>
+
+
 
 
           <!-- Homepage Hero goes at the top -->
