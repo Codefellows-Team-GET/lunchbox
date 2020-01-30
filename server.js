@@ -61,10 +61,8 @@ function Restaurant(data) {
 function inputPageLoad(req, res) {
   res.render('pages/input', {
     foo: 'Pick your spot =>',
-    restaurants:[{name: '7-11'}, {name: 'subway'}]
+    restaurants:[{name: ''}, {name: ''}]
   });
-
-
 }
 
 // function resultsPageLoad(req, res) {
