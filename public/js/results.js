@@ -2,11 +2,12 @@
 
 console.log('JS linked');
 
-$(".sort").click(function(){
+$('.sort').click(function(){
   console.log('something was clicked', $(this).text())
   $.ajax({
-    type: "POST",
-    url: "/sort",
+    type: 'POST',
+    url: '/sort',
     data: $(this).text(),
-    dataType: "JSON"
+    dataType: 'JSON'
+  });
 });
