@@ -49,3 +49,18 @@ h2 {
   font-size: 16pt;
   font-weight: bolder;
 }
+
+th{
+  padding: 1px;
+  color: rgb(171, 197, 228);
+  
+}
+td{
+  padding: 1px;
+  color: rgb(207, 236, 173);
+  text-align: center;
+}
+
+#content-wrap{
+  min-width: 560px;
+}
