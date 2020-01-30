@@ -27,20 +27,20 @@
       <div id="content-wrap">
         <%- include('../layout/header') %>
         <main>
-
           <!-- ejs template for eateries -->
           <h1><%= foo %></h1>
           <ul>
             <% for(var eatery of restaurants){ %>
               <% if(eatery.name === '7-11'){ %>
-            <li><%= eatery.name %></li>
-              <% } else { %>
-            <li><%= eatery.name %></li>
-                <% } %>
-            <% } %>
-          </ul>
-
-
+                <li><%= eatery.name %></li>
+                <% } else { %>
+                  <li><%= eatery.name %></li>
+                  <% } %>
+                  <% } %>
+                </ul>
+                
+                
+          <section id="initialInput">
           <!-- Reuse Homepage Hero here or new image? -->
           <div id ="div-form">
             <form action = '/addRestaurant' method="post" id="new-lunchbox">
@@ -97,6 +97,8 @@
       </div>
       <%- include('../layout/footer') %>
     </div>
+
+  </section>
 
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
