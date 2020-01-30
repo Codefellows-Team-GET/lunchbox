@@ -86,7 +86,7 @@ function errorHandler(error, req, res) {
   res.status(500).send(error);
 }
 
-// Below is the stuff for taking the posted data from the form on the input page, putting the info into the database and taking it from the database to render on the results page.
+// Below functions for taking the posted data from the form on the input page, putting the info into the database and taking it from the database to render on the results page.
 
 var lunchbox = [];
 
@@ -123,12 +123,6 @@ function addRes(req, res) {
 
 function getRes(req, res) {
 
-  // console.log('what')
-  // console.log('res.body: ', res.body);
-  // res.body.resData = {};
-  console.log('what')
-  console.log('what')
-
   let SQL = 'SELECT * from saved_res;';
 
   return client.query(SQL)
@@ -158,6 +152,8 @@ function findDetails(req, res) {
 }
 
 
+
+
 function showUpdateForm(req, res) {
   console.log('you are redirecting to update form')
   res.status(200).render('pages/update.ejs');
@@ -180,6 +176,19 @@ function updateRest(req, res) {
 
 
 // Below are the functions for sorting lunchbox array based on different clicks on the table headers. They need to be rewritten for EJS
+
+function sortRest(req, res) {
+  let SQL = 'SELECT column-list FROM saved_res [ORDER BY column1, column2, .. columnN] [ASC | DESC];';
+
+  let values = [req.params.id];
+
+  client.query(SQL, values)
+  return client.query(SQL, values)
+    .then(res.render('pages/results', {results: results.rows}))
+    .catch(err => errorHandler(err, res));
+}
+
+
 
 // function sortByWalkTime (event) {
 //   lunchbox.sort(function (a, b) {
