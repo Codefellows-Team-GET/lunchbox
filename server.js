@@ -32,6 +32,8 @@ app.use((methodOverride('_method')));
 app.get('/update/:id', findDetails);
 app.post('/update/:id', showUpdateForm);
 app.put('/update/:id', updateRest);
+///Delete///
+app.delete('/update/:id', deleteRest);
 
 
 ///Errors///
@@ -119,7 +121,7 @@ function addRes(req, res) {
     .catch(err => errorHandler(err, res));
 }
 
-// Below is the function that will get the restaraunt data from the database and render to the results page. 
+// Below is the function that will get the restaraunt data from the database and render to the results page.
 
 function getRes(req, res) {
 
@@ -151,9 +153,6 @@ function findDetails(req, res) {
     .catch(err => errorHandler(err, res));
 }
 
-
-
-
 function showUpdateForm(req, res) {
   console.log('you are redirecting to update form')
   res.status(200).render('pages/update.ejs');
@@ -171,6 +170,19 @@ function updateRest(req, res) {
   return client.query(SQL, newValues)
     .then(res.redirect('/results'))
     .catch(err => errorHandler(err, res));
+}
+
+
+///// delete restaurant////
+function deleteRest (request,response){
+  let SQL = `DELETE FROM saved_res WHERE id=$1;`;
+  let values = [request.params.id]
+
+  client.query(SQL, values)
+    .then(response.redirect('/results'))
+    .catch(() => {
+      errorHandler ('cannot delete request here!', request, response);
+    });
 }
 
 

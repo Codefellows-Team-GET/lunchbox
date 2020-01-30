@@ -27,9 +27,9 @@
             <main>
     
               <!-- Reuse Homepage Hero here or new image? -->
-              <div id ="div-form-update">
+              <div id ="div-form">
     
-            <form action="/update/<%= results.id %>?_method=PUT" method = "post">
+            <form action="/update/delete/<%= results.id %>?_method=DELETE">
     
                    <fieldset>
     
@@ -74,34 +74,13 @@
     
                       </br>
     
-                      <input type="submit" value="Update">
+                      <input type="submit" value="Delete">
+    
+
                     </label>
     
                    </fieldset>
                 </form>
-                
-                <!-- DELETE -->
-                <form action="/update/<%= results.id %>?_method=DELETE" method = "post">
-    
-                  <fieldset>
-   
-
-                       <input type="hidden" name="userName" value="<%- results.username %>"class="class-lunchbox" required />
-
-
-                       <input type="hidden" name="resName" value="<%- results.resname %>"class="class-lunchbox" required />
-
-                       <input type="hidden" name="walkTime" value="<%- results.walktime %>"class="class-lunchbox" required />
-                       <input type="hidden" name="waitTime" value="<%- results.waittime %>"class="class-lunchbox" required />
-
-
-                     <input type="submit" value="Delete">
-                   </label>
-   
-                  </fieldset>
-               </form>
-
-
               </div>
             </main>
           </div>
