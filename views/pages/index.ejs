@@ -13,36 +13,20 @@
         
         <main>
 
-          <form action="action_page.php" method="post">
-            <div class="imgcontainer">
-              <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
-              <span style="font-size: 3em;">
-                <i class="fas fa-key"></i>
-              </span>
-
-            </div>
-          
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
-          
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-          
-              <button type="submit">Login</button>
-              <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-              </label>
-            </div>
-          
-            <div class="container" style="background-color:#f1f1f1">
-              <button type="button" class="cancelbtn">Cancel</button>
-              <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-          </form>
+   <!-- User name input -->
+  <div>
+    <form class="pure-form" action="/input">
+      <label for="name"><i class="fa fa-key fa-lg"></i><b>Login</b></label>
+      <input id="name" type="text" placeholder="Enter Name" name="name"/>
+      <label for="psw"><b>Admin</b></label>
+      <input id="pw" type="password" placeholder="Optional" name="psw"> <!-- maybe add required -->
+      <button id="topage2" onclick="submitInfo()" type="submit">submit <a href="input.ejs"><i class="fa fa-arrow-circle-right fa-lg"></i></a></button>
+    </form>
+  </div>
 
           <!-- Map -->
           <%- include('../layout/map') %>
+
 
 <!-- User name input -->
   <form class="pure-form" action="/input">
@@ -50,6 +34,10 @@
     <button id="topage2" onclick="submitInfo()" type="submit"><i class="fa fa-chevron-circle-right"></i>submit <a href="input.ejs"></a></button>
   </form>
     <!--ken's work space ^^-->
+    
+=======
+          <!-- Map -->
+          <%- include('../layout/map') %>
 
 
           <!-- Homepage Hero goes at the top -->
@@ -80,7 +68,7 @@
   crossorigin="anonymous"></script>
 
     <script src="js/index.js" type="text/javascript"></script>
-    <script src="../../server.js" type="text/javascript"></script>
+    <!-- <script src="../../server.js" type="text/javascript"></script> -->
 
   </body>
 </html>
