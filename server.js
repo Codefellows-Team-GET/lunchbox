@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const pg = require('pg');
 const cors = require('cors');
+const methodOverride = require('method-override');
 
 // var path = require('path');
 
@@ -26,8 +27,15 @@ app.get('/input', inputPageLoad);
 app.get('/results', getRes);
 app.get('/about', aboutPageLoad);
 app.post('/addRestaurant', addRes);
-app.get('*', (req, res) => res.status(404).send('This route does not exist'));
+///Update///
+app.use((methodOverride('_method')));
+app.get('/update/:id', findDetails);
+app.post('/update/:id', showUpdateForm);
+app.put('/update/:id', updateRest);
 
+
+///Errors///
+app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 app.use(errorHandler);
 
 function homePageLoad(req, res) {
@@ -114,6 +122,11 @@ function addRes(req, res) {
 // Below is the function that will get the restaraunt data from the database and render to the results page. 
 
 function getRes(req, res) {
+
+  // console.log('what')
+  // console.log('res.body: ', res.body);
+  // res.body.resData = {};
+  console.log('what')
   console.log('what')
 
   let SQL = 'SELECT * from saved_res;';
@@ -129,6 +142,41 @@ function getRes(req, res) {
     })
     .catch(errorHandler);
 }
+
+/////UPDATE DATABASE////
+function findDetails(req, res) {
+  let SQL = 'SELECT * FROM saved_res WHERE id=$1;';
+
+  let values = [req.params.id];
+
+  client.query(SQL, values)
+    .then((results) => {
+
+      res.render('pages/update.ejs', {results: results.rows[0]})
+    })
+    .catch(err => errorHandler(err, res));
+}
+
+
+function showUpdateForm(req, res) {
+  console.log('you are redirecting to update form')
+  res.status(200).render('pages/update.ejs');
+}
+
+function updateRest(req, res) {
+  console.log(req.params.id);
+  console.log('updating form')
+  let { userName, resName, walkTime, waitTime, price, rating } = req.body;
+
+  let SQL = `UPDATE saved_res SET userName=$1, resName=$2, walkTime=$3, totalTime=$4, waitTime=$5, price=$6, rating =$7 WHERE id=$8;`;
+
+  let newValues = [userName, resName, walkTime, waitTime, 20 , price, rating, req.params.id];
+
+  return client.query(SQL, newValues)
+    .then(res.redirect('/results'))
+    .catch(err => errorHandler(err, res));
+}
+
 
 
 // Below are the functions for sorting lunchbox array based on different clicks on the table headers. They need to be rewritten for EJS
