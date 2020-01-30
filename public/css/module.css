@@ -185,7 +185,15 @@ display: inline-block;
 vertical-align: middle;
 }
 
-
+/* Centering */
 #div-form-update {
+  margin: auto;
+}
+
+#lunchbox-table{
+  margin: auto;
+}
+
+#initialInput {
   margin: auto;
 }
