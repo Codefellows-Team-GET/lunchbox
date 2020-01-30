@@ -5,7 +5,6 @@
     <title>Lunchbox - Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
   </head>
   <body>
 
@@ -45,9 +44,10 @@
           <li><a href=<%=obj.url%>>Link to website</a></li>
         <% }) %>
       </ul>
-
     </section>
+
         
+    
         </main>
         <div id="admin">
         <label for="psw"><b>Admin</b></label>
@@ -57,6 +57,8 @@
       </div>
       <%- include('../layout/footer') %>
     </div>
+    <label for="psw"><b>Admin</b></label>
+      <input id="pw" type="password" placeholder="Optional" name="psw"> <!-- maybe add required -->
 
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
