@@ -19,13 +19,14 @@
               </td>
             </tr>
             <tr>
-              <th>User Name</th>
-              <th>Res. Name</th>
-              <th onclick="sortByWalkTime()" class="sorting">Walk Time</th>
-              <th onclick="sortByWaitTime()" class="sorting">Wait Time</th>
-              <th onclick="sortByTotalTime()" class="sorting">Total Time</th>
-              <th onclick="sortByPrice()" class="sorting">Price</th>
-              <th onclick="sortByRating()"class="sorting">Rating</th>
+              <th class="sort">ID</th>
+              <th class="sort">User Name</th>
+              <th class="sort">Restaraunt Name</thclass="sort">
+              <th class="sort">Walk Time</th>
+              <th class="sort">Wait Time</th>
+              <th class="sort">Total Time</th>
+              <th class="sort">Price</th>
+              <th class="sort">Rating</th>
             </tr>
             <tbody id="lunchbox-table-body">
 
@@ -51,8 +52,11 @@
       <%- include('../layout/footer') %>
     </div>
 
+    <script src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="js/results.js" type="text/javascript"></script>
-    <script src="../../server.js" type="text/javascript"></script>
+
+    <!-- <script src="server.js" type="text/javascript"></script> -->
+
 
   </body>
 </html>
