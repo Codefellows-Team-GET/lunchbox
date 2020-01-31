@@ -15,7 +15,9 @@ Matthew Johnson
 
 ### Setup
 Run command in terminal: 
+
 $ npm install 
+
 This will install all necessary packages and dependencies 
 
 cd into folder
