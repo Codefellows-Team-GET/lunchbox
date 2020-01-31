@@ -64,3 +64,11 @@ td{
 #content-wrap{
   min-width: 600px;
 }
+
+button{
+  border-radius: 4px;
+}
+
+input{
+  border-radius: 4px;
+}
