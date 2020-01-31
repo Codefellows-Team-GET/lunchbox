@@ -38,7 +38,6 @@ A user will be presented with links for each restaurant.
 A user will be given directions to each restaurant.
 
 Data Flow
-Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
 When the user lands on the index page, they will be presented with beutiful backdrop of the area, 
 and possibly an embedded video. On the lower part of the page, the user will see information about local restaurants. 
 They will then clock to proceed to the next page. 
