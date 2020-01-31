@@ -5,10 +5,6 @@
     <%- include('../layout/head') %>
     <title>Lunchbox - Input</title>
   
-    <!-- <script id="character-template" type="text/x-handlebars-template"> 
-      <h1 class="character">{{'name'}}</h1>
-      </script> -->
-  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script>
         $(document).ready(function(){
@@ -17,8 +13,7 @@
       </script>
   
   <h1 id="namae">....</h1>
-  
-  
+
   </head>
 
   <body>
@@ -26,19 +21,7 @@
     <div id="page-container">
       <div id="content-wrap">
         <%- include('../layout/header') %>
-        <main>
-          <!-- ejs template for eateries -->
-          <h1><%= foo %></h1>
-          <ul>
-            <% for(var eatery of restaurants){ %>
-              <% if(eatery.name === '7-11'){ %>
-                <li><%= eatery.name %></li>
-                <% } else { %>
-                  <li><%= eatery.name %></li>
-                  <% } %>
-                  <% } %>
-                </ul>
-                
+        <main>  
                 
           <section id="initialInput">
           <!-- Reuse Homepage Hero here or new image? -->
@@ -103,8 +86,5 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.2/handlebars.amd.js" type="text/javascript"></script>
-    <script src="js/input.js" type="text/javascript"></script>
-    
   </body>
 </html>
