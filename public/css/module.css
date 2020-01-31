@@ -7,7 +7,7 @@
   line-height: 40px;
   display: inline-flex;
   list-style: none;
-  background-color: #fdc029;
+  background-color: #ffe809;
   margin: 10px auto 30px auto;
 }
 
@@ -37,6 +37,8 @@
   position: relative;
   display: inline-flex;
   margin: auto;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 
@@ -50,11 +52,13 @@
 
 /*  link stuff  */
 a {
-  color: rgb(44, 253, 183)
+  color: rgb(75, 180, 145);
+  text-decoration: none;
 }
 
 a:hover {
   color: rgb(235, 79, 79);
+  text-decoration: underline;
 }
 
 /* Index page */
@@ -63,41 +67,28 @@ a:hover {
 #map {
   width: 90%;
   height: 500px;
-  margin: 10px;
+  margin: auto;
 }
 
 .map {
   display: flex;
   width: 70%;
   margin: 2em auto;
-  border: solid 1px #fdc029;
+  border: solid 1px #ffe809;
   border-radius: 5%;
   position: relative;
 }
 
-/* #instructions {
-  position: absolute;
-  margin: 20px;
-  width: 25%;
-  top: 0;
-  bottom: 20%;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  overflow-y: scroll;
-  font-family: sans-serif;
-  font-size: 0.8em;
-  line-height: 2em;
-}
-
-.duration {
-  font-size: 2em;
-} */
-
 /*  End Map */
+
+#restHeader {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
 
 #yelp { 
   width: 80%;
-  height: 325px;
+  height: 450px;
   overflow: scroll;
   margin: auto;
   margin-top: 1em;
@@ -106,7 +97,9 @@ a:hover {
 }
 
 .pure-form {
-  text-align: center;;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 /* Scrollbar */
@@ -117,17 +110,17 @@ a:hover {
 }
 
 ::-webkit-scrollbar-corner {
-    background: #fdc029;
+    background: #ffe809;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #fdc029;
+  background: #ffe809;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #fdc029;
+  background: #ffe809;
 }
 
 footer {
@@ -145,11 +138,69 @@ footer {
 /*  about us */
 
 .photo { 
+  /* display: inline-flexbox; */
   width: 200px;
   border-radius: 20%;
 }
 
 .icon {
-  width: 25px;
+  width: 40px;
+  margin-top: 20px;
+  margin-left:10px;
+  margin-right: 10px;
 }
 
+
+/* About Page */
+.aboutTable {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  color: white;
+  width: 80%;
+  text-align: center;
+}
+
+.teamMember {
+  width:fit-content ;   
+  color: #ffe809;
+  font-family: 'Permanent Marker', cursive;
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 10px;
+  font-size:50px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.paraCell{
+width: auto ;  
+border: dashed 2px #ffe809;
+border-radius: 15px;
+padding: 15px;
+font-family: 'Noto Sans TC', sans-serif;
+font-size: 20px;
+text-align:justify;
+display: inline-block;
+vertical-align: middle;
+color: aliceblue;
+}
+
+/* Centering */
+#div-form-update {
+  margin: auto;
+}
+
+#lunchbox-table{
+  margin: auto;
+}
+
+#initialInput {
+  margin: auto;
+}
+
+#admin {
+margin-left: 75%;
+}
