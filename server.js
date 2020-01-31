@@ -33,6 +33,8 @@ app.use((methodOverride('_method')));
 app.get('/update/:id', findDetails);
 app.post('/update/:id', showUpdateForm);
 app.put('/update/:id', updateRest);
+///Delete///
+app.delete('/update/:id', deleteRest);
 
 ///Sort///
 app.get('/sort/:id', sortRest);
@@ -127,6 +129,7 @@ function addRes(req, res) {
 
 // Below is the function that will get the restaraunt data from the database and render to the results page. //
 
+
 function getRes(req, res) {
 
   let SQL = 'SELECT * from saved_res;';
@@ -177,7 +180,23 @@ function updateRest(req, res) {
     .catch(err => errorHandler(err, res));
 }
 
-// Below is the function for sorting the lunchbox results table based on different clicks on the table headers. //
+
+///// delete restaurant////
+function deleteRest (request,response){
+  let SQL = `DELETE FROM saved_res WHERE id=$1;`;
+  let values = [request.params.id]
+
+  client.query(SQL, values)
+    .then(response.redirect('/results'))
+    .catch(() => {
+      errorHandler ('cannot delete request here!', request, response);
+    });
+}
+
+
+
+// Below are the functions for sorting lunchbox array based on different clicks on the table headers. They need to be rewritten for EJS
+
 
 function sortRest(req, res) {
   console.log('Hi from sortRest')

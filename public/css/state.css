@@ -19,4 +19,14 @@
       width: 100%;
       font-size: 18px;
   }
+  th{
+    padding: 10px;
+    color: rgb(171, 197, 228);
+    
+  }
+  td{
+    padding: 2px;
+    color: rgb(207, 236, 173);
+    text-align: center;
+  }
 }

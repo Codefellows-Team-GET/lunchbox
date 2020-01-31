@@ -4,6 +4,7 @@
     <%- include('../layout/head') %>
     <title>Lunchbox - Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
   <body>
 
@@ -18,8 +19,6 @@
     <form class="pure-form" action="/input">
       <label for="name"><i class="fa fa-key fa-lg"></i><b>Login</b></label>
       <input id="name" type="text" placeholder="Enter Name" name="name"/>
-      <label for="psw"><b>Admin</b></label>
-      <input id="pw" type="password" placeholder="Optional" name="psw">
       <button id="topage2" onclick="submitInfo()" type="submit">submit <a href="input.ejs"><i class="fa fa-arrow-circle-right fa-lg"></i></a></button>
     </form>
   </div>
@@ -27,7 +26,7 @@
           <%- include('../layout/map') %>
   <section id=yelp>
       <ul>
-
+        <h1 id="restHeader">Suggestions: </h1>
         <% restaurant.forEach(obj => { %>
           <h2><%= obj.name %></h2>
           <li><%= obj.phone %></li>
@@ -35,13 +34,20 @@
           <li><a href=<%=obj.url%>>Link to website</a></li>
         <% }) %>
       </ul>
-
     </section>
+
         
+    
         </main>
+        <div id="admin">
+        <label for="psw"><b>Admin</b></label>
+        <input id="pw" type="password" placeholder="Optional" name="psw"> <!-- maybe add required -->
+      </div>
+        
       </div>
       <%- include('../layout/footer') %>
     </div>
+    
 
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
