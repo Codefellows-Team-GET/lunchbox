@@ -200,7 +200,7 @@ function deleteRest (request,response){
 
 function sortRest(req, res) {
   console.log('Hi from sortRest')
-  let SQL = 'SELECT * FROM saved_res ORDER BY $1 [ASC | DESC];';
+  let SQL = 'SELECT * FROM saved_res ORDER BY $1 ASC;';
 
   let values = [req.params.id];
 
