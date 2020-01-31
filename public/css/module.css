@@ -7,7 +7,7 @@
   line-height: 40px;
   display: inline-flex;
   list-style: none;
-  background-color: #fdc029;
+  background-color: #ffe809;
   margin: 10px auto 30px auto;
 }
 
@@ -52,11 +52,13 @@
 
 /*  link stuff  */
 a {
-  color: rgb(75, 180, 145)
+  color: rgb(75, 180, 145);
+  text-decoration: none;
 }
 
 a:hover {
   color: rgb(235, 79, 79);
+  text-decoration: underline;
 }
 
 /* Index page */
@@ -72,7 +74,7 @@ a:hover {
   display: flex;
   width: 70%;
   margin: 2em auto;
-  border: solid 1px #fdc029;
+  border: solid 1px #ffe809;
   border-radius: 5%;
   position: relative;
 }
@@ -108,17 +110,17 @@ a:hover {
 }
 
 ::-webkit-scrollbar-corner {
-    background: #fdc029;
+    background: #ffe809;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #fdc029;
+  background: #ffe809;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #fdc029;
+  background: #ffe809;
 }
 
 footer {
@@ -163,7 +165,7 @@ footer {
 
 .teamMember {
   width:fit-content ;   
-  color: #fdc129;
+  color: #ffe809;
   font-family: 'Permanent Marker', cursive;
   border-radius: 15px;
   padding-left: 20px;
@@ -175,7 +177,7 @@ footer {
 
 .paraCell{
 width: auto ;  
-border: dashed 2px #fdc129;
+border: dashed 2px #ffe809;
 border-radius: 15px;
 padding: 15px;
 font-family: 'Noto Sans TC', sans-serif;

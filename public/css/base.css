@@ -24,7 +24,7 @@ main {
   display: flexbox;
   width: 80%;
   background-color: #49494bbb;
-  border: solid 8px #fdc029;
+  border: solid 8px #ffe809;
   color: white;
   margin: auto;
   align-items: center;;
@@ -35,12 +35,13 @@ main {
 }
 
 h1 { 
-  color: #fdc029;
+  color: #ffe809;
   font-size: 4em;
   font-weight: bolder;
   padding: 10px;
   font-family: 'Permanent Marker', cursive;
   line-height: 50px;
+  text-shadow: black 2px 2px;
 }
 
 /*  font stuff */
