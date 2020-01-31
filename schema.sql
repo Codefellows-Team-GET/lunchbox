@@ -20,3 +20,43 @@ INSERT INTO saved_res (userName, resName, walkTime, waitTime, totalTime, price, 
   '$',
   '★★★☆'
   );
+
+  INSERT INTO saved_res (userName, resName, walkTime, waitTime, totalTime, price, rating)VALUES(
+  'Sally',
+  'Mantra',
+  '4',
+  '10',
+  '20',
+  '$$',
+  '★★★☆'
+  );
+
+  INSERT INTO saved_res (userName, resName, walkTime, waitTime, totalTime, price, rating)VALUES(
+  'Keith',
+  'Japonesa',
+  '20',
+  '7',
+  '47',
+  '$$$',
+  '★★★★'
+  );
+
+  INSERT INTO saved_res (userName, resName, walkTime, waitTime, totalTime, price, rating)VALUES(
+  'Drew',
+  'Buffalo Wild Wings',
+  '16',
+  '2',
+  '34',
+  '$$',
+  '★★☆☆'
+  );
+
+  INSERT INTO saved_res (userName, resName, walkTime, waitTime, totalTime, price, rating)VALUES(
+  'Bella',
+  '7-11',
+  '4',
+  '2',
+  '10',
+  '$',
+  '★☆☆☆'
+  );
